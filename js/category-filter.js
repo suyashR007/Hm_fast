@@ -528,7 +528,11 @@ const CategoryFilter = (() => {
         gridEl = document.getElementById(options.gridId);
         if (!gridEl || !window.productsData) return;
 
-        allProducts = window.productsData.products[categoryKey] || [];
+        if (options.products) {
+            allProducts = options.products;
+        } else {
+            allProducts = window.productsData.products[categoryKey] || [];
+        }
         filteredProducts = [...allProducts];
 
         bindFilters();

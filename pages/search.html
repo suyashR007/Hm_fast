@@ -424,9 +424,57 @@
     <script src="../js/category-filter.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = (params.get('q') || '').toLowerCase().trim();
+
+            const searchTitle = document.getElementById('search-title');
+            const searchCount = document.getElementById('search-count');
+
+            if (!query) {
+                if (searchTitle) searchTitle.textContent = 'Please enter a search query';
+                if (searchCount) searchCount.style.display = 'none';
+
+                CategoryFilter.init({
+                    gridId: 'men-product-grid',
+                    products: []
+                });
+                return;
+            }
+
+            if (searchTitle) {
+                searchTitle.textContent = `Search Results for "${query}"`;
+            }
+
+            let allProducts = [];
+            if (window.productsData && window.productsData.products) {
+                Object.values(window.productsData.products).forEach(categoryProducts => {
+                    if (Array.isArray(categoryProducts)) {
+                        allProducts = allProducts.concat(categoryProducts);
+                    }
+                });
+            }
+
+            const matchedProducts = allProducts.filter(product => {
+                return (product.name && product.name.toLowerCase().includes(query)) ||
+                    (product.category && product.category.toLowerCase().includes(query));
+            });
+
+            const uniqueProducts = [];
+            const ids = new Set();
+            matchedProducts.forEach(p => {
+                if (!ids.has(p.id)) {
+                    ids.add(p.id);
+                    uniqueProducts.push(p);
+                }
+            });
+
+            if (searchCount) {
+                searchCount.textContent = `${uniqueProducts.length} items found`;
+            }
+
             CategoryFilter.init({
-                categoryKey: 'men',
-                gridId: 'men-product-grid'
+                gridId: 'men-product-grid',
+                products: uniqueProducts
             });
         });
     </script>
