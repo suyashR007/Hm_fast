@@ -268,7 +268,7 @@ const CategoryFilter = (() => {
                 <div class="aspect-[2/3] w-full overflow-hidden bg-[#f4f4f4] mb-3 relative">
                     <a href="product.html?id=${product.id}" class="block h-full">
                         <img src="${image}" alt="${product.name}" width="400" height="600"
-                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 product-image-blend" loading="lazy">
                     </a>
                     <button class="wishlist-btn${inWishlist} absolute top-2 right-2 hover:scale-110 transition-transform z-10" 
                             data-product-id="${product.id}" aria-label="Add to favourites">
