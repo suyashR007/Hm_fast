@@ -284,13 +284,28 @@
     font-size: var(--font-size-xl);
   }
 
-  .category-subtitle {
-    font-size: var(--font-size-sm);
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  /* On mobile, remove side padding for product grids so they touch the edges */
+  main.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .product-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Add padding back to sort toolbar and filter button */
+  .mobile-filter-toggle,
+  .sort-toolbar,
+  .active-filters-bar {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .product-badges {
@@ -427,7 +442,7 @@
   }
 
   .grid-cols-2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .grid-cols-3 {
@@ -609,5 +624,20 @@
     background-color: var(--hm-white);
     color: var(--hm-gray-600);
     border-color: var(--hm-gray-300);
+  }
+}
+
+/* Campaign Spotlight Grid */
+@media screen and (min-width: 1025px) {
+  .campaign-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .layout-grid {
+    grid-template-columns: 240px 1fr !important;
   }
 }

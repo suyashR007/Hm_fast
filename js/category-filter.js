@@ -270,7 +270,7 @@ const CategoryFilter = (() => {
                         <img src="${image}" alt="${product.name}" 
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
                     </a>
-                    <button class="wishlist-btn${inWishlist} absolute bottom-2 right-2 hover:scale-110 transition-transform z-10" 
+                    <button class="wishlist-btn${inWishlist} absolute top-2 right-2 hover:scale-110 transition-transform z-10" 
                             data-product-id="${product.id}" aria-label="Add to favourites">
                         <svg class="heart-outline w-4 h-4 text-black" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                            <path d="M8.697 2.253a4.278 4.278 0 0 1 6.05 6.05L8 15.05 1.253 8.304a4.278 4.278 0 0 1 6.05-6.05L8 2.948l.696-.696Zm4.99 1.06a2.778 2.778 0 0 0-3.93 0L8.003 5.07 6.243 3.315a2.779 2.779 0 0 0-3.93 3.928L8 12.928l5.686-5.686a2.778 2.778 0 0 0 0-3.928Z"></path>
