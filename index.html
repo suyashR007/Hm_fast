@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Preload hero videos to massively improve LCP metric before JS executes them -->
+    <link rel="preload" as="video" type="video/mp4" href="assets/videos/mobile-hero.mp4" media="(max-width: 767px)">
+    <link rel="preload" as="video" type="video/mp4" href="assets/videos/desktop-hero.mp4" media="(min-width: 768px)">
 </head>
 
 <body>
@@ -96,10 +99,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-slide active">
-            <video id="heroVideo" data-testid="videoBackground" aria-hidden="true" tabindex="-1" preload="auto" playsinline
-                autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+            <video id="heroVideo" data-testid="videoBackground" aria-hidden="true" tabindex="-1" preload="auto"
+                playsinline autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;"></video>
             <script>
-                (function() {
+                (function () {
                     var video = document.getElementById('heroVideo');
                     var src = window.innerWidth <= 767
                         ? 'assets/videos/mobile-hero.mp4'
@@ -108,7 +111,7 @@
                     video.load();
                     var playPromise = video.play();
                     if (playPromise !== undefined) {
-                        playPromise.catch(function() {
+                        playPromise.catch(function () {
                             // Autoplay was blocked; video will play on user interaction
                         });
                     }
@@ -130,7 +133,7 @@
                 <a href="pages/product.html?id=149500003"
                     class="group relative aspect-[2/3] w-full overflow-hidden bg-gray-50 block">
                     <img src="images/products/women/149500003.jpg" alt="Floral chiffon dress" width="400" height="600"
-                        loading="lazy"
+                        fetchpriority="high"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute bottom-6 left-6">
                         <h3 class="text-xl font-bold mb-2 text-black">Floral chiffon dress</h3>
@@ -143,7 +146,7 @@
                 <a href="pages/product.html?id=149500008"
                     class="group relative aspect-[2/3] w-full overflow-hidden bg-gray-50 block">
                     <img src="images/products/women/149500008.jpg" alt="Cropped denim jacket" width="400" height="600"
-                        loading="lazy"
+                        fetchpriority="high"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute bottom-6 left-6">
                         <h3 class="text-xl font-bold mb-2 text-black">Cropped denim jacket</h3>
@@ -156,7 +159,7 @@
                 <a href="pages/product.html?id=149500014"
                     class="group relative aspect-[2/3] w-full overflow-hidden bg-gray-50 block">
                     <img src="images/products/women/149500014.jpg" alt="Wide-leg jeans" width="400" height="600"
-                        loading="lazy"
+                        fetchpriority="high"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute bottom-6 left-6">
                         <h3 class="text-xl font-bold mb-2 text-black">Wide-leg jeans</h3>
@@ -169,7 +172,7 @@
                 <a href="pages/product.html?id=149500005"
                     class="group relative aspect-[2/3] w-full overflow-hidden bg-gray-50 block">
                     <img src="images/products/women/149500005.jpg" alt="Knit cardigan" width="400" height="600"
-                        loading="lazy"
+                        fetchpriority="high"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute bottom-6 left-6">
                         <h3 class="text-xl font-bold mb-2 text-black">Knit cardigan</h3>
