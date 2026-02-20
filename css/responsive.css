@@ -220,7 +220,7 @@
 /* Mobile (480px and down) */
 @media screen and (max-width: 480px) {
   .container {
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--spacing-sm);
   }
 
   .header-nav {
@@ -286,26 +286,7 @@
 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-  }
-
-  /* On mobile, remove side padding for product grids so they touch the edges */
-  main.container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .product-grid {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Add padding back to sort toolbar and filter button */
-  .mobile-filter-toggle,
-  .sort-toolbar,
-  .active-filters-bar {
-    margin-left: 16px;
-    margin-right: 16px;
+    gap: var(--spacing-sm);
   }
 
   .product-badges {
